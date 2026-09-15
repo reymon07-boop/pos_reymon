@@ -40,64 +40,19 @@
         }
 
         /* =====================================
-            BACKGROUND ANIMASI DINAMIS & HIDUP
+            BACKGROUND STATIS
         ===================================== */
-        body::before,
-        body::after {
+        body::before {
             content: "";
             position: fixed;
             inset: -50%;
             z-index: -1;
             pointer-events: none;
-        }
-
-        body::before {
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(0, 255, 170, 0.25), transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(0, 217, 255, 0.2), transparent 40%),
                 radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.18), transparent 50%);
-            background-size: 200% 200%;
-            animation: moveGradient1 10s ease infinite alternate;
-        }
-
-        body::after {
-            background-image: 
-                radial-gradient(circle at 70% 20%, rgba(0, 217, 255, 0.2), transparent 35%),
-                radial-gradient(circle at 30% 80%, rgba(0, 255, 170, 0.2), transparent 35%),
-                radial-gradient(circle at 90% 90%, rgba(236, 72, 153, 0.15), transparent 40%);
-            background-size: 200% 200%;
-            animation: moveGradient2 14s ease infinite alternate;
-            opacity: 0.85;
-        }
-
-        @keyframes moveGradient1 {
-            0% {
-                background-position: 0% 0%;
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                background-position: 100% 50%;
-                filter: hue-rotate(30deg);
-            }
-            100% {
-                background-position: 50% 100%;
-                filter: hue-rotate(60deg);
-            }
-        }
-
-        @keyframes moveGradient2 {
-            0% {
-                background-position: 100% 100%;
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                background-position: 0% 50%;
-                filter: hue-rotate(-30deg);
-            }
-            100% {
-                background-position: 50% 0%;
-                filter: hue-rotate(-60deg);
-            }
+            background-size: 100% 100%;
         }
 
         /* =====================================
@@ -130,12 +85,6 @@
             color: var(--primary);
             background: rgba(0, 255, 170, 0.07);
             font-size: 13px;
-            animation: statusGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes statusGlow {
-            0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 170, 0.05); }
-            50% { box-shadow: 0 0 15px rgba(0, 255, 170, 0.2); }
         }
 
         /* =====================================
@@ -154,27 +103,6 @@
             font-size: 28px;
             background: rgba(0, 255, 170, 0.06);
             box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
-            animation: basketFloat 3s ease-in-out infinite;
-        }
-
-        .logo i {
-            animation: basketIcon 2s ease-in-out infinite;
-        }
-
-        @keyframes basketFloat {
-            0%, 100% {
-                transform: translateY(0);
-                box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
-            }
-            50% {
-                transform: translateY(-7px);
-                box-shadow: 0 0 28px rgba(0, 255, 170, 0.4);
-            }
-        }
-
-        @keyframes basketIcon {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(-5deg) scale(1.08); }
         }
 
         /* =====================================
@@ -253,7 +181,6 @@
             background: rgba(255, 255, 255, 0.04);
             color: white;
             font-size: 14px;
-            transition: 0.2s ease;
         }
 
         .form-input:focus {
@@ -279,7 +206,6 @@
             color: #64748b;
             cursor: pointer;
             font-size: 17px;
-            transition: 0.2s;
         }
 
         .toggle-password:hover {
@@ -314,33 +240,11 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: 0.2s ease;
-        }
-
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 255, 170, 0.3);
-        }
-
-        .btn-login:active {
-            transform: translateY(0);
         }
 
         .btn-login:disabled {
             opacity: 0.7;
             cursor: not-allowed;
-            transform: none;
-        }
-
-        /* =====================================
-            LOADING ANIMATION
-        ===================================== */
-        .loading-icon {
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         /* =====================================
@@ -381,7 +285,7 @@
         <!-- LOGIN CARD -->
         <div class="login-card">
 
-            <!-- KERANJANG ANIMASI -->
+            <!-- LOGO KERANJANG -->
             <div class="logo">
                 <i class="bi bi-bag-heart-fill"></i>
             </div>
@@ -490,7 +394,7 @@
         });
 
         /* =====================================
-            LOGIN LOADING
+            LOGIN LOADING (Tanpa Animasi Spinner)
         ===================================== */
         const form = document.getElementById('loginForm');
         const button = document.getElementById('submitBtn');
@@ -499,8 +403,7 @@
             button.disabled = true;
             button.innerHTML = `
                 <span>Memproses...</span>
-                <i class="bi bi-arrow-repeat loading-icon"></i>
-            
+            `;
         });
     </script>
 
