@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -72,10 +71,10 @@ Route::middleware('auth')->group(function () {
         // Item Penjualan
         Route::resource('/itempenjualan', ItemPenjualanController::class);
 
-        // Tentang
-        Route::get('/tentang', function () {
-            return view('tentang');
-        })->name('tentang');
+        // Tentang Toko
+        Route::view('/tentang-toko', 'tentang-toko')->name('tentang.toko');
+
+        // Tentang Saya
+        Route::view('/tentang-saya', 'tentang-saya')->name('tentang.saya');
     });
 });
-

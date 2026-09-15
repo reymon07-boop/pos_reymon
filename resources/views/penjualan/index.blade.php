@@ -55,7 +55,7 @@
     ========================== --}}
     <div class="row g-3 mb-4">
 
-        <div class="col-md-4">
+        <div class="col-12">
 
             <div class="stat-card">
 
@@ -77,64 +77,6 @@
 
                     <span class="stat-desc">
                         Data transaksi tercatat
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-4">
-
-            <div class="stat-card">
-
-                <div class="stat-icon icon-blue">
-                    💼
-                </div>
-
-                <div class="stat-content">
-
-                    <span class="stat-label">
-                        STATUS SISTEM
-                    </span>
-
-                    <h4 class="stat-value">
-                        Aktif & Normal
-                    </h4>
-
-                    <span class="stat-desc">
-                        Sistem POS berjalan normal
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-4">
-
-            <div class="stat-card">
-
-                <div class="stat-icon icon-amber">
-                    ⚡
-                </div>
-
-                <div class="stat-content">
-
-                    <span class="stat-label">
-                        MODE OPERASIONAL
-                    </span>
-
-                    <h4 class="stat-value">
-                        POS Realtime
-                    </h4>
-
-                    <span class="stat-desc">
-                        Pencatatan transaksi langsung
                     </span>
 
                 </div>

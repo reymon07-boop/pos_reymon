@@ -16,6 +16,13 @@
     font-size: 24px;
     font-weight: 800;
     color: white !important;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.navbar-brand:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 .brand-icon {
@@ -96,7 +103,8 @@
 
 <div class="container-fluid px-0">
 
-    <a class="navbar-brand d-flex align-items-center" href="{{ route('dashboard') }}">
+    {{-- BRAND / LOGO SEKARANG MEMBUKA HALAMAN TENTANG TOKO --}}
+    <a class="navbar-brand d-flex align-items-center" href="{{ route('tentang.toko') }}">
         <span class="brand-icon">🛒</span>
         Remon Thrift House
     </a>
@@ -127,10 +135,11 @@
                     Penjualan
                 </a>
             </li>
-            <!-- MENU TENTANG -->
+
+            {{-- MENU TENTANG SAYA --}}
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('tentang*') ? 'active' : '' }}" href="{{ route('tentang') }}">
-                    Tentang
+                <a class="nav-link {{ Request::is('tentang-saya*') ? 'active' : '' }}" href="{{ route('tentang.saya') }}">
+                    Tentang Saya
                 </a>
             </li>
         </ul>

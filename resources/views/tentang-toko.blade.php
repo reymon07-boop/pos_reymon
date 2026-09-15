@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami - Remon Thrift House')
+@section('title', 'Tentang Toko - Remon Thrift House')
 
 @section('content')
 
@@ -83,8 +83,8 @@
 
             <div class="col-lg-9 text-center text-lg-start">
                 <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(52, 211, 153, 0.15); border: 1px solid rgba(52, 211, 153, 0.4);">
-                    <i class="bi bi-shield-check" style="color: #6ee7b7;"></i>
-                    <span class="fw-semibold small" style="color: #a7f3d0;">Curated Vintage & Streetwear POS</span>
+                    <i class="bi bi-bag-heart-fill" style="color: #6ee7b7;"></i>
+                    <span class="fw-semibold small" style="color: #a7f3d0;">Curated Vintage & Streetwear Store</span>
                 </div>
 
                 <h1 class="display-6 fw-bold text-white mb-2">
@@ -92,13 +92,13 @@
                 </h1>
 
                 <p class="text-white opacity-90 mb-3" style="max-width: 700px; line-height: 1.7;">
-                    Destinasi kurasi pakaian <em>thrifting</em> pilihan dengan sistem manajemen inventaris dan transaksi kasir digital yang modern, cepat, dan transparan. Dibangun untuk memberikan pengalaman operasional toko yang efisien.
+                    Pusat pakaian thrift pilihan berkualitas tinggi. Kami berkomitmen menyajikan fashion bekas original terkurasi, siap pakai, bersih, dan higienis untuk gaya harian Anda yang makin estetik dan ramah kantong.
                 </p>
 
                 <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 text-white opacity-75 small">
-                    <div><i class="bi bi-code-square me-1" style="color: #6ee7b7;"></i> Developer: <strong>Reymon</strong></div>
+                    <div><i class="bi bi-person-badge me-1" style="color: #6ee7b7;"></i> Owner: <strong>Reymon</strong></div>
                     <div>&bull;</div>
-                    <div><i class="bi bi-mortarboard me-1" style="color: #6ee7b7;"></i> Program: <strong>PPLG / RPL</strong></div>
+                    <div><i class="bi bi-tag-fill me-1" style="color: #6ee7b7;"></i> Kategori: <strong>Thrift & Vintage Clothing</strong></div>
                 </div>
             </div>
         </div>
@@ -107,56 +107,56 @@
     <!-- DETAIL CARDS GRID -->
     <div class="row g-4 mb-4">
         
-        <!-- KARTU FITUR UTAMA -->
+        <!-- KARTU INFORMASI & LOKASI TOKO -->
         <div class="col-lg-6">
             <div class="feature-card-modern p-4 h-100">
                 <div class="d-flex align-items-center gap-3 mb-4">
                     <div class="rounded-3 p-3" style="background: rgba(52, 211, 153, 0.2); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.4);">
-                        <i class="bi bi-layers-fill fs-4"></i>
+                        <i class="bi bi-geo-alt-fill fs-4"></i>
                     </div>
                     <div>
-                        <h4 class="fw-bold text-white mb-0">Fitur & Arsitektur</h4>
-                        <span class="text-white opacity-50 small">Sistem operasional kasir</span>
+                        <h4 class="fw-bold text-white mb-0">Informasi & Lokasi Toko</h4>
+                        <span class="text-white opacity-50 small">Profil dan alamat Remon Thrift House</span>
                     </div>
                 </div>
 
                 <div class="d-flex flex-column gap-3 text-white opacity-90 small">
                     <div class="d-flex align-items-start gap-2">
                         <i class="bi bi-check2-circle mt-1 fs-5" style="color: #6ee7b7;"></i>
-                        <div><strong>Manajemen Stok Produk:</strong> Kontrol data pakaian, kategori, dan pembaruan inventaris secara akurat.</div>
+                        <div><strong>Produk yang Dijual:</strong> Menyediakan berbagai pakaian <i>thrift</i> pilihan seperti kaos, hoodie, jaket, celana, dan aksesoris <i>secondhand</i> berkualitas tinggi.</div>
                     </div>
                     <div class="d-flex align-items-start gap-2">
                         <i class="bi bi-check2-circle mt-1 fs-5" style="color: #6ee7b7;"></i>
-                        <div><strong>Kasir Penjualan Efisien:</strong> Proses transaksi cepat dengan perhitungan total belanja otomatis.</div>
+                        <div><strong>Alamat Toko:</strong> Jl. Raya Utama No. 123, Kel. Sukamaju, Kec. Cibeureum, Kota Tasikmalaya, Jawa Barat.</div>
                     </div>
                     <div class="d-flex align-items-start gap-2">
                         <i class="bi bi-check2-circle mt-1 fs-5" style="color: #6ee7b7;"></i>
-                        <div><strong>Hak Akses Multi-User:</strong> Pembagian peran terstruktur antara Admin toko dan Petugas Kasir.</div>
+                        <div><strong>Jam Operasional:</strong> Buka setiap hari Senin – Minggu, pukul 10.00 – 21.00 WIB.</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- KARTU TECH STACK -->
+        <!-- KARTU LAYANAN & FASILITAS TOKO -->
         <div class="col-lg-6">
             <div class="feature-card-modern p-4 h-100">
                 <div class="d-flex align-items-center gap-3 mb-4">
                     <div class="rounded-3 p-3" style="background: rgba(52, 211, 153, 0.2); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.4);">
-                        <i class="bi bi-cpu-fill fs-4"></i>
+                        <i class="bi bi-stars fs-4"></i>
                     </div>
                     <div>
-                        <h4 class="fw-bold text-white mb-0">Teknologi Sistem</h4>
-                        <span class="text-white opacity-50 small">Dibangun dengan standar modern</span>
+                        <h4 class="fw-bold text-white mb-0">Layanan & Fasilitas</h4>
+                        <span class="text-white opacity-50 small">Kenyamanan belanja untuk pelanggan</span>
                     </div>
                 </div>
 
                 <div class="d-flex flex-wrap gap-2">
-                    <div class="tech-badge-clean"><i class="bi bi-filetype-php" style="color: #6ee7b7;"></i> Laravel Framework</div>
-                    <div class="tech-badge-clean"><i class="bi bi-database" style="color: #6ee7b7;"></i> MySQL Database</div>
-                    <div class="tech-badge-clean"><i class="bi bi-bootstrap" style="color: #6ee7b7;"></i> Bootstrap 5 UI</div>
-                    <div class="tech-badge-clean"><i class="bi bi-filetype-js" style="color: #6ee7b7;"></i> JavaScript ES6</div>
-                    <div class="tech-badge-clean"><i class="bi bi-git" style="color: #6ee7b7;"></i> Git Version Control</div>
-                    <div class="tech-badge-clean"><i class="bi bi-code-slash" style="color: #6ee7b7;"></i> VS Code</div>
+                    <div class="tech-badge-clean"><i class="bi bi-sparkles" style="color: #6ee7b7;"></i> Pakaian Bersih & Siap Pakai</div>
+                    <div class="tech-badge-clean"><i class="bi bi-award-fill" style="color: #6ee7b7;"></i> Terjamin 100% Original</div>
+                    <div class="tech-badge-clean"><i class="bi bi-qr-code-scan" style="color: #6ee7b7;"></i> Pembayaran Cash & QRIS</div>
+                    <div class="tech-badge-clean"><i class="bi bi-door-open-fill" style="color: #6ee7b7;"></i> Fitting Room Nyaman</div>
+                    <div class="tech-badge-clean"><i class="bi bi-truck" style="color: #6ee7b7;"></i> Pengiriman Seluruh Indonesia</div>
+                    <div class="tech-badge-clean"><i class="bi bi-percent" style="color: #6ee7b7;"></i> Promo & Diskip Mingguan</div>
                 </div>
             </div>
         </div>
@@ -167,12 +167,12 @@
     <div class="feature-card-modern p-4 mb-4">
         <div class="row text-center text-md-start align-items-center g-3">
             <div class="col-md-8">
-                <h5 class="fw-bold text-white mb-1">Remon Thrift House POS System</h5>
-                <p class="text-white opacity-75 small mb-0">Solusi digitalisasi toko thrift lokal untuk meningkatkan produktivitas dan meminimalisir kesalahan rekap data.</p>
+                <h5 class="fw-bold text-white mb-1">Remon Thrift House</h5>
+                <p class="text-white opacity-75 small mb-0">Belanja thrift aman, nyaman, dan ramah lingkungan. Dapatkan barang langka impianmu hari ini!</p>
             </div>
             <div class="col-md-4 text-md-end">
                 <span class="badge px-3 py-2 rounded-pill" style="background: rgba(52, 211, 153, 0.15); color: #a7f3d0; border: 1px solid rgba(52, 211, 153, 0.4);">
-                    <i class="bi bi-circle-fill me-1" style="font-size: 8px; color: #34d399;"></i> Status: Production Ready
+                    <i class="bi bi-circle-fill me-1" style="font-size: 8px; color: #34d399;"></i> Status Toko: Buka
                 </span>
             </div>
         </div>
