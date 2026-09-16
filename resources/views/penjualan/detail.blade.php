@@ -378,8 +378,9 @@
 <div id="thermal-receipt-area">
 
     <div class="receipt-header">
-        <h2>TOKO ANDA</h2>
-        <p>Jl. Contoh Alamat Store No. 123</p>
+        <h2>TOKO REMON TRIFHT HOUSE</h2>
+        <p>Jl. Jl. Raya Utama No. 123, Kel. Sukamaju, Kec. Cibeureum, 
+            Kota Tasikmalaya, Jawa Barat. No. 123</p>
         <p>Telp: 0812-3456-7890</p>
     </div>
 

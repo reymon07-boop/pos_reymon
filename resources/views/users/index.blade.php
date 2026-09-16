@@ -393,7 +393,7 @@
 
     {{-- STATISTIK --}}
     <div class="row g-3 mb-4">
-        <div class="col-md-4">
+        <div class="col-12">
             <div class="stat-card">
                 <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.30);">
                     👥
@@ -403,30 +403,6 @@
                     <div class="stat-value">
                         {{ method_exists($users, 'total') ? $users->total() : (is_countable($users) ? count($users) : 0) }}
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.30);">
-                    🛡️
-                </div>
-                <div>
-                    <span class="stat-label">Status Otoritas</span>
-                    <div class="stat-value">Terproteksi</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.30);">
-                    ⚡
-                </div>
-                <div>
-                    <span class="stat-label">Role Aktif</span>
-                    <div class="stat-value">Multi-Level</div>
                 </div>
             </div>
         </div>
