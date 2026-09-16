@@ -34,8 +34,8 @@
             <div class="col-md-4">
                 <div class="info-card">
                     <div class="info-icon">🎓</div>
-                    <div class="info-title">Pendidikan / Instansi</div>
-                    <div class="info-value">Nama Sekolah / Kampus</div>
+                    <div class="info-title">Pendidikan</div>
+                    <div class="info-value">SMKN 4 Tasikmalaya</div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -49,7 +49,7 @@
                 <div class="info-card">
                     <div class="info-icon">✉️</div>
                     <div class="info-title">Kontak</div>
-                    <div class="info-value">email@kamu.com</div>
+                    <div class="info-value">reymon@gmail.com</div>
                 </div>
             </div>
         </div>
