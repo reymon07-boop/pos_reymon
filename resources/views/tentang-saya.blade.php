@@ -8,28 +8,28 @@
 
 <div class="about-me-container">
     <div class="page-card text-center">
-        
-        {{-- FOTO / AVATAR PROFIL --}}
+
+
         <div class="profile-avatar-wrapper">
             <div class="profile-avatar">
                 👨‍💻
             </div>
         </div>
 
-        {{-- NAMA & ROLE --}}
+
         <h2 class="developer-name">Remon</h2>
         <p class="developer-role">Web Developer / Software Engineer</p>
 
         <hr class="divider">
 
-        {{-- DESKRIPSI SINGKAT --}}
+
         <p class="bio-text">
-            Halo! Saya adalah pengembang aplikasi <strong>Remon Thrift House POS</strong>. 
-            Sistem ini dirancang untuk mempermudah pencatatan transaksi, pengelolaan stok produk, 
+            Halo! Saya adalah pengembang aplikasi <strong>Remon Thrift House POS</strong>.
+            Sistem ini dirancang untuk mempermudah pencatatan transaksi, pengelolaan stok produk,
             dan pemantauan riwayat penjualan toko secara efisien.
         </p>
 
-        {{-- KARTU INFORMASI PROFIL --}}
+
         <div class="row g-3 justify-content-center mt-3">
             <div class="col-md-4">
                 <div class="info-card">
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        {{-- TOMBOL KEMBALI --}}
+
         <div class="mt-4">
             <a href="{{ route('dashboard') }}" class="btn-back">
                 ← Kembali ke Dashboard
@@ -70,8 +70,8 @@
     min-height: 100vh;
     padding: 40px 20px;
     background:
-        radial-gradient(circle at 5% 10%, rgba(16, 185, 129, 0.13), transparent 32%),
-        radial-gradient(circle at 95% 80%, rgba(59, 130, 246, 0.08), transparent 30%),
+        radial-gradient(circle at 5% 10%, rgba(33, 16, 185, 0.13), transparent 32%),
+        radial-gradient(circle at 95% 80%, rgba(22, 89, 197, 0.08), transparent 30%),
         linear-gradient(135deg, #020807 0%, #03120f 45%, #020609 100%);
     color: #e2e8f0;
 }
@@ -98,7 +98,7 @@
     height: 90px;
     border-radius: 50%;
     background: rgba(16, 185, 129, 0.15);
-    border: 2px solid rgba(52, 211, 153, 0.4);
+    border: 2px solid rgba(46, 20, 192, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +113,7 @@
 }
 
 .developer-role {
-    color: #34d399;
+    color: #2216d1;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 0;
@@ -164,7 +164,7 @@
 .btn-back {
     display: inline-block;
     background: rgba(16, 185, 129, 0.1);
-    color: #34d399;
+    color: #1829bd;
     border: 1px solid rgba(16, 185, 129, 0.25);
     padding: 9px 20px;
     border-radius: 10px;
@@ -175,7 +175,7 @@
 }
 
 .btn-back:hover {
-    background: #10b981;
+    background: #5f2add;
     color: #ffffff;
 }
 </style>

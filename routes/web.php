@@ -8,35 +8,73 @@ use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 
-// Redirect root URL langsung ke halaman login
+
 Route::get('/', function () {
     return redirect()->route('login');
 });
 
-// Route yang bisa diakses ketika user BELUM login
+
+/*
+|--------------------------------------------------------------------------
+| LOGIN
+|--------------------------------------------------------------------------
+*/
+
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('login');
-    Route::post('/login', [AuthController::class, 'auth'])->name('login.process');
+
+    Route::get('/login', [AuthController::class, 'index'])
+        ->name('login');
+
+    Route::post('/login', [AuthController::class, 'auth'])
+        ->name('login.process');
+
 });
 
-// Route yang hanya bisa diakses ketika user SUDAH login
+
+/*
+|--------------------------------------------------------------------------
+| AUTH
+|--------------------------------------------------------------------------
+*/
+
 Route::middleware('auth')->group(function () {
 
-    // Dashboard
+    /*
+    |--------------------------------------------------------------------------
+    | DASHBOARD
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
-    // Logout
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOGOUT
+    |--------------------------------------------------------------------------
+    */
+
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    // =========================
-    // KHUSUS ADMIN
-    // =========================
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADMIN
+    |--------------------------------------------------------------------------
+    */
+
     Route::middleware('role:admin')
         ->prefix('admin')
         ->name('admin.')
         ->group(function () {
+
+            /*
+            |--------------------------------------------------------------------------
+            | USERS
+            |--------------------------------------------------------------------------
+            */
 
             Route::get('/users', [UserController::class, 'index'])
                 ->name('users');
@@ -55,26 +93,86 @@ Route::middleware('auth')->group(function () {
 
             Route::delete('/users/destroy/{user}', [UserController::class, 'destroy'])
                 ->name('users.destroy');
+
         });
 
-    // =========================
-    // ADMIN & KASIR
-    // =========================
+
+    /*
+    |--------------------------------------------------------------------------
+    | LAPORAN PENJUALAN ADMIN
+    |--------------------------------------------------------------------------
+    */
+
+    Route::middleware('role:admin')
+        ->prefix('admin')
+        ->group(function () {
+
+            Route::get('/laporan-penjualan', [
+                PenjualanController::class,
+                'laporan'
+            ])->name('penjualan.laporan');
+
+        });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADMIN + KASIR
+    |--------------------------------------------------------------------------
+    */
+
     Route::middleware('role:admin,kasir')->group(function () {
 
-        // Produk
+        /*
+        |--------------------------------------------------------------------------
+        | PRODUK
+        |--------------------------------------------------------------------------
+        */
+
         Route::resource('/produk', ProdukController::class);
 
-        // Penjualan
+
+        /*
+        |--------------------------------------------------------------------------
+        | PENJUALAN
+        |--------------------------------------------------------------------------
+        */
+
         Route::resource('/penjualan', PenjualanController::class);
 
-        // Item Penjualan
+
+        /*
+        |--------------------------------------------------------------------------
+        | ITEM PENJUALAN
+        |--------------------------------------------------------------------------
+        */
+
         Route::resource('/itempenjualan', ItemPenjualanController::class);
 
-        // Tentang Toko
-        Route::view('/tentang-toko', 'tentang-toko')->name('tentang.toko');
 
-        // Tentang Saya
-        Route::view('/tentang-saya', 'tentang-saya')->name('tentang.saya');
+        /*
+        |--------------------------------------------------------------------------
+        | TENTANG TOKO
+        |--------------------------------------------------------------------------
+        */
+
+        Route::view(
+            '/tentang-toko',
+            'tentang-toko'
+        )->name('tentang.toko');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | TENTANG SAYA
+        |--------------------------------------------------------------------------
+        */
+
+        Route::view(
+            '/tentang-saya',
+            'tentang-saya'
+        )->name('tentang.saya');
+
     });
+
 });

@@ -8,9 +8,7 @@
 
 <div class="sales-dashboard-container">
 
-    {{-- =========================
-         HEADER
-    ========================== --}}
+
     <div class="sales-header">
 
         <div class="header-content">
@@ -36,10 +34,7 @@
         </div>
 
 
-        <a
-            href="{{ route('penjualan.create') }}"
-            class="btn-create-new"
-        >
+        <a href="{{ route('penjualan.create') }}" class="btn-create-new">
             <i class="bi bi-plus-lg"></i>
 
             <span>
@@ -50,9 +45,7 @@
     </div>
 
 
-    {{-- =========================
-         STATISTIC
-    ========================== --}}
+
     <div class="row g-3 mb-4">
 
         <div class="col-12">
@@ -88,38 +81,28 @@
     </div>
 
 
-    {{-- =========================
-         SUCCESS MESSAGE
-    ========================== --}}
+
     @if(session('success'))
 
-        <div
-            class="alert alert-custom-success fade show mb-4"
-            role="alert"
-        >
+    <div class="alert alert-custom-success fade show mb-4" role="alert">
 
-            <div class="alert-icon">
-                ✓
-            </div>
-
-            <div>
-                {{ session('success') }}
-            </div>
-
+        <div class="alert-icon">
+            ✓
         </div>
+
+        <div>
+            {{ session('success') }}
+        </div>
+
+    </div>
 
     @endif
 
 
-    {{-- =========================
-         MAIN CARD
-    ========================== --}}
     <div class="page-card">
 
 
-        {{-- =========================
-             CARD HEADER
-        ========================== --}}
+
         <div class="table-card-header">
 
             <div>
@@ -141,14 +124,8 @@
         </div>
 
 
-        {{-- =========================
-             SEARCH
-        ========================== --}}
-        <form
-            action="{{ route('penjualan.index') }}"
-            method="GET"
-            class="mb-4"
-        >
+
+        <form action="{{ route('penjualan.index') }}" method="GET" class="mb-4">
 
             <div class="search-box">
 
@@ -156,18 +133,11 @@
                     🔍
                 </span>
 
-                <input
-                    type="text"
-                    name="search"
-                    value="{{ request('search') }}"
+                <input type="text" name="search" value="{{ request('search') }}"
                     class="form-control custom-search-input"
-                    placeholder="Cari berdasarkan kasir atau metode pembayaran..."
-                >
+                    placeholder="Cari berdasarkan kasir atau metode pembayaran...">
 
-                <button
-                    class="btn-search"
-                    type="submit"
-                >
+                <button class="btn-search" type="submit">
                     <i class="bi bi-search"></i>
                     Cari Data
                 </button>
@@ -177,9 +147,6 @@
         </form>
 
 
-        {{-- =========================
-             TABLE
-        ========================== --}}
         <div class="table-responsive">
 
             <table class="table table-modern align-middle mb-0">
@@ -188,10 +155,7 @@
 
                     <tr>
 
-                        <th
-                            width="5%"
-                            class="text-center"
-                        >
+                        <th width="5%" class="text-center">
                             #
                         </th>
 
@@ -215,10 +179,7 @@
                             STATUS
                         </th>
 
-                        <th
-                            width="15%"
-                            class="text-center"
-                        >
+                        <th width="15%" class="text-center">
                             AKSI
                         </th>
 
@@ -231,202 +192,191 @@
 
                     @forelse($sales as $sale)
 
-                        <tr>
+                    <tr>
 
-                            {{-- NOMOR --}}
 
-                            <td class="text-center row-number">
 
-                                {{ method_exists($sales, 'firstItem')
+                        <td class="text-center row-number">
+
+                            {{ method_exists($sales, 'firstItem')
                                     ? $sales->firstItem() + $loop->index
                                     : $loop->iteration
                                 }}
 
-                            </td>
+                        </td>
 
 
-                            {{-- TANGGAL --}}
 
-                            <td>
 
-                                <div class="date-wrapper">
+                        <td>
 
-                                    <div class="date-icon">
-                                        📅
-                                    </div>
+                            <div class="date-wrapper">
 
-                                    <div>
+                                <div class="date-icon">
+                                    📅
+                                </div>
 
-                                        <div class="fw-semibold text-light">
+                                <div>
 
-                                            {{ $sale->created_at
+                                    <div class="fw-semibold text-light">
+
+                                        {{ $sale->created_at
                                                 ? $sale->created_at->translatedFormat('d-m-Y')
                                                 : '-'
                                             }}
 
-                                        </div>
+                                    </div>
 
-                                        <small class="time-text">
+                                    <small class="time-text">
 
-                                            {{ $sale->created_at
+                                        {{ $sale->created_at
                                                 ? $sale->created_at->translatedFormat('H:i:s')
                                                 : '-'
                                             }}
 
-                                        </small>
-
-                                    </div>
+                                    </small>
 
                                 </div>
 
-                            </td>
+                            </div>
+
+                        </td>
 
 
-                            {{-- KASIR --}}
+                        <td>
 
-                            <td>
+                            <div class="cashier-wrapper">
 
-                                <div class="cashier-wrapper">
+                                <div class="cashier-avatar">
+                                    👤
+                                </div>
 
-                                    <div class="cashier-avatar">
-                                        👤
-                                    </div>
+                                <div class="fw-semibold text-light">
 
-                                    <div class="fw-semibold text-light">
-
-                                        {{ optional($sale->user)->name ?? 'Kasir Umum' }}
-
-                                    </div>
+                                    {{ optional($sale->user)->name ?? 'Kasir Umum' }}
 
                                 </div>
 
-                            </td>
+                            </div>
+
+                        </td>
 
 
-                            {{-- TOTAL --}}
 
-                            <td>
 
-                                <span class="total-payment">
+                        <td>
 
-                                    Rp
-                                    {{ number_format(
+                            <span class="total-payment">
+
+                                Rp
+                                {{ number_format(
                                         $sale->total_pembayaran,
                                         0,
                                         ',',
                                         '.'
                                     ) }}
 
-                                </span>
+                            </span>
 
-                            </td>
+                        </td>
 
 
-                            {{-- METODE --}}
 
-                            <td>
 
-                                @if(strtoupper($sale->metode_pembayaran ?? 'CASH') === 'QRIS')
+                        <td>
 
-                                    <span class="badge-custom badge-qris">
-                                        ▣ QRIS
+                            @if(strtoupper($sale->metode_pembayaran ?? 'CASH') === 'QRIS')
+
+                            <span class="badge-custom badge-qris">
+                                ▣ QRIS
+                            </span>
+
+                            @else
+
+                            <span class="badge-custom badge-cash">
+                                💵 CASH
+                            </span>
+
+                            @endif
+
+                        </td>
+
+
+
+
+                        <td>
+
+                            @if(strtoupper($sale->status ?? '') == 'OPEN')
+
+                            <span class="badge-custom badge-warning">
+                                <span class="status-dot warning-dot"></span>
+                                OPEN
+                            </span>
+
+                            @else
+
+                            <span class="badge-custom badge-success">
+                                <span class="status-dot success-dot"></span>
+                                COMPLETED
+                            </span>
+
+                            @endif
+
+                        </td>
+
+
+
+
+                        <td class="text-center">
+
+                            <div class="d-flex justify-content-center">
+
+                                <a href="{{ route('penjualan.show', $sale) }}" class="btn-action-continue"
+                                    title="Continue">
+
+                                    <span>
+                                        Continue
                                     </span>
 
-                                @else
+                                    <i class="bi bi-arrow-right"></i>
 
-                                    <span class="badge-custom badge-cash">
-                                        💵 CASH
-                                    </span>
+                                </a>
 
-                                @endif
+                            </div>
 
-                            </td>
+                        </td>
 
-
-                            {{-- STATUS --}}
-
-                            <td>
-
-                                @if(strtoupper($sale->status ?? '') == 'OPEN')
-
-                                    <span class="badge-custom badge-warning">
-                                        <span class="status-dot warning-dot"></span>
-                                        OPEN
-                                    </span>
-
-                                @else
-
-                                    <span class="badge-custom badge-success">
-                                        <span class="status-dot success-dot"></span>
-                                        COMPLETED
-                                    </span>
-
-                                @endif
-
-                            </td>
-
-
-                            {{-- ACTION --}}
-
-                            <td class="text-center">
-
-                                <div class="d-flex justify-content-center">
-
-                                    <a
-                                        href="{{ route('penjualan.show', $sale) }}"
-                                        class="btn-action-continue"
-                                        title="Continue"
-                                    >
-
-                                        <span>
-                                            Continue
-                                        </span>
-
-                                        <i class="bi bi-arrow-right"></i>
-
-                                    </a>
-
-                                </div>
-
-                            </td>
-
-                        </tr>
+                    </tr>
 
                     @empty
 
-                        <tr>
+                    <tr>
 
-                            <td
-                                colspan="7"
-                                class="text-center py-5"
-                            >
+                        <td colspan="7" class="text-center py-5">
 
-                                <div class="empty-state">
+                            <div class="empty-state">
 
-                                    <div class="empty-icon">
-                                        🧾
-                                    </div>
-
-                                    <h6 class="empty-title">
-                                        Data Penjualan Kosong
-                                    </h6>
-
-                                    <p class="empty-text">
-                                        Belum ada transaksi yang tercatat di sistem.
-                                    </p>
-
-                                    <a
-                                        href="{{ route('penjualan.create') }}"
-                                        class="empty-button"
-                                    >
-                                        + Tambah Penjualan
-                                    </a>
-
+                                <div class="empty-icon">
+                                    🧾
                                 </div>
 
-                            </td>
+                                <h6 class="empty-title">
+                                    Data Penjualan Kosong
+                                </h6>
 
-                        </tr>
+                                <p class="empty-text">
+                                    Belum ada transaksi yang tercatat di sistem.
+                                </p>
+
+                                <a href="{{ route('penjualan.create') }}" class="empty-button">
+                                    + Tambah Penjualan
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
 
                     @endforelse
 
@@ -442,11 +392,11 @@
         ========================== --}}
         @if(method_exists($sales, 'links'))
 
-            <div class="pagination-wrapper">
+        <div class="pagination-wrapper">
 
-                {{ $sales->appends(request()->query())->links() }}
+            {{ $sales->appends(request()->query())->links() }}
 
-            </div>
+        </div>
 
         @endif
 
@@ -456,11 +406,6 @@
 
 
 <style>
-
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
-
 .sales-dashboard-container {
 
     position: relative;
@@ -472,34 +417,22 @@
     color: #e2e8f0;
 
     background:
-        radial-gradient(
-            circle at 5% 10%,
+        radial-gradient(circle at 5% 10%,
             rgba(16, 185, 129, 0.13),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 95% 80%,
+            transparent 32%),
+        radial-gradient(circle at 95% 80%,
             rgba(59, 130, 246, 0.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
+            transparent 30%),
+        radial-gradient(circle at 50% 100%,
             rgba(16, 185, 129, 0.06),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
+            transparent 35%),
+        linear-gradient(135deg,
             #020807 0%,
             #03120f 45%,
-            #020609 100%
-        );
+            #020609 100%);
 
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
 
 .sales-header {
 
@@ -548,24 +481,22 @@
     font-size: 23px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             rgba(16, 185, 129, 0.20),
-            rgba(16, 185, 129, 0.07)
-        );
+            rgba(16, 185, 129, 0.07));
 
     border:
-        1px solid rgba(16, 185, 129, 0.22);
+        1px solid rgba(13, 26, 202, 0.22);
 
     box-shadow:
-        0 10px 25px rgba(16, 185, 129, 0.08);
+        0 10px 25px rgba(16, 27, 185, 0.08);
 
 }
 
 
 .header-label {
 
-    color: #34d399;
+    color: #1e8ad1;
 
     font-size: 10px;
 
@@ -602,18 +533,12 @@
 }
 
 
-/* =========================================================
-   CREATE BUTTON
-========================================================= */
-
 .btn-create-new {
 
     background:
-        linear-gradient(
-            135deg,
-            #10c998,
-            #06a879
-        );
+        linear-gradient(135deg,
+            #2310c9,
+            #2317cf);
 
     color: #ffffff;
 
@@ -661,20 +586,14 @@
 }
 
 
-/* =========================================================
-   STAT CARD
-========================================================= */
-
 .stat-card {
 
     height: 100%;
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             rgba(14, 32, 37, 0.88),
-            rgba(8, 23, 28, 0.78)
-        );
+            rgba(8, 23, 28, 0.78));
 
     border:
         1px solid rgba(255, 255, 255, 0.08);
@@ -819,9 +738,6 @@
 }
 
 
-/* =========================================================
-   SUCCESS ALERT
-========================================================= */
 
 .alert-custom-success {
 
@@ -829,7 +745,7 @@
         rgba(16, 185, 129, 0.10);
 
     color:
-        #6ee7b7;
+        #c3e76e;
 
     border:
         1px solid rgba(16, 185, 129, 0.22);
@@ -871,9 +787,6 @@
 }
 
 
-/* =========================================================
-   MAIN CARD
-========================================================= */
 
 .page-card {
 
@@ -882,11 +795,9 @@
     z-index: 2;
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             rgba(10, 27, 32, 0.88),
-            rgba(7, 20, 25, 0.82)
-        );
+            rgba(7, 20, 25, 0.82));
 
     border:
         1px solid rgba(255, 255, 255, 0.08);
@@ -904,9 +815,6 @@
 }
 
 
-/* =========================================================
-   TABLE CARD HEADER
-========================================================= */
 
 .table-card-header {
 
@@ -949,7 +857,7 @@
 
 .transaction-badge {
 
-    color: #34d399;
+    color: #343ed3;
 
     background:
         rgba(16, 185, 129, 0.09);
@@ -970,9 +878,6 @@
 }
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
 
 .search-box {
 
@@ -1053,11 +958,9 @@
 .btn-search {
 
     background:
-        linear-gradient(
-            135deg,
-            #10c998,
-            #06a879
-        );
+        linear-gradient(135deg,
+            #1509c2,
+            #1509c2);
 
     color:
         #ffffff;
@@ -1099,9 +1002,6 @@
 }
 
 
-/* =========================================================
-   TABLE
-========================================================= */
 
 .table-responsive {
 
@@ -1192,14 +1092,11 @@
 }
 
 
-/* =========================================================
-   ROW NUMBER
-========================================================= */
 
 .table-modern tbody td.row-number {
 
     color:
-        #00d99a !important;
+        #2f00d9 !important;
 
     font-weight:
         800;
@@ -1210,9 +1107,6 @@
 }
 
 
-/* =========================================================
-   DATE
-========================================================= */
 
 .date-wrapper {
 
@@ -1268,9 +1162,6 @@
 }
 
 
-/* =========================================================
-   CASHIER
-========================================================= */
 
 .cashier-wrapper {
 
@@ -1318,14 +1209,11 @@
 }
 
 
-/* =========================================================
-   TOTAL PAYMENT
-========================================================= */
 
 .total-payment {
 
     color:
-        #34d399;
+        #344cd3;
 
     font-size:
         13px;
@@ -1339,9 +1227,6 @@
 }
 
 
-/* =========================================================
-   BADGES
-========================================================= */
 
 .badge-custom {
 
@@ -1395,7 +1280,7 @@
         rgba(16, 185, 129, 0.10);
 
     color:
-        #34d399;
+        #5134d3;
 
     border:
         1px solid rgba(16, 185, 129, 0.20);
@@ -1423,7 +1308,7 @@
         rgba(16, 185, 129, 0.11);
 
     color:
-        #34d399;
+        #3e34d3;
 
     border:
         1px solid rgba(16, 185, 129, 0.22);
@@ -1462,7 +1347,7 @@
 .success-dot {
 
     background:
-        #34d399;
+        #7134d3;
 
     box-shadow:
         0 0 7px rgba(52, 211, 153, 0.55);
@@ -1480,7 +1365,7 @@
         rgba(0, 217, 154, 0.09);
 
     color:
-        #00d99a;
+        #4b17db;
 
     border:
         1px solid rgba(0, 217, 154, 0.20);
@@ -1518,7 +1403,7 @@
 .btn-action-continue:hover {
 
     background:
-        #00d99a;
+        #1d1ace;
 
     color:
         #020807;
@@ -1531,10 +1416,6 @@
 
 }
 
-
-/* =========================================================
-   EMPTY STATE
-========================================================= */
 
 .empty-state {
 
@@ -1631,7 +1512,7 @@
         rgba(16, 185, 129, 0.10);
 
     color:
-        #34d399;
+        #1613ca;
 
     border:
         1px solid rgba(16, 185, 129, 0.20);
@@ -1654,7 +1535,7 @@
         #ffffff;
 
     background:
-        #10b981;
+        #3a29ca;
 
 }
 
@@ -1705,7 +1586,7 @@
         rgba(16, 185, 129, 0.10);
 
     color:
-        #34d399;
+        #2718ad;
 
 }
 
@@ -1713,20 +1594,16 @@
 .pagination-wrapper .page-item.active .page-link {
 
     background:
-        #10b981;
+        #5f10b9;
 
     border-color:
-        #10b981;
+        #1b10b9;
 
     color:
         #ffffff;
 
 }
 
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1905,7 +1782,6 @@
     }
 
 }
-
 </style>
 
 @endsection

@@ -17,9 +17,7 @@
 
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('storage/' . $produk->foto) }}"
-                        class="img-thumbnail"
-                        width="250"
+                    <img src="{{ asset('storage/' . $produk->foto) }}" class="img-thumbnail" width="250"
                         alt="{{ $produk->nama }}">
                 </div>
 
@@ -50,6 +48,8 @@
                             <th>Penginput</th>
                             <td>{{ $produk->user->name ?? '-' }}</td>
                         </tr>
+
+
                     </table>
 
                     <div class="mt-3">
@@ -58,24 +58,23 @@
                         </a>
 
                         @can('update', $produk)
-                            <a href="{{ route('produk.edit', $produk) }}" class="btn btn-warning">
-                                Edit
-                            </a>
+                        <a href="{{ route('produk.edit', $produk) }}" class="btn btn-warning">
+                            Edit
+                        </a>
                         @endcan
 
                         @can('delete', $produk)
-                            <form action="{{ route('produk.destroy', $produk) }}"
-                                  method="POST"
-                                  class="d-inline">
-                                @csrf
-                                @method('DELETE')
+                        <form action="{{ route('produk.destroy', $produk) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
 
-                                <button class="btn btn-danger"
-                                    onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button class="btn btn-danger"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
+                                Hapus
+                            </button>
+                        </form>
                         @endcan
+
                     </div>
 
                 </div>

@@ -48,10 +48,8 @@
                 </button>
 
                 {{-- Hapus --}}
-                <form action="{{ route('penjualan.destroy', $sale) }}"
-                      method="POST"
-                      class="m-0"
-                      onsubmit="return confirm('Apakah Anda yakin ingin menghapus transaksi ini? Data yang dihapus tidak dapat dikembalikan.')">
+                <form action="{{ route('penjualan.destroy', $sale) }}" method="POST" class="m-0"
+                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus transaksi ini? Data yang dihapus tidak dapat dikembalikan.')">
 
                     @csrf
                     @method('DELETE')
@@ -144,17 +142,17 @@
 
                     @if(strtoupper($sale->status ?? '') === 'OPEN')
 
-                        <span class="badge-custom badge-warning">
-                            <span class="status-dot"></span>
-                            OPEN
-                        </span>
+                    <span class="badge-custom badge-warning">
+                        <span class="status-dot"></span>
+                        OPEN
+                    </span>
 
                     @else
 
-                        <span class="badge-custom badge-success">
-                            <span class="status-dot"></span>
-                            COMPLETED
-                        </span>
+                    <span class="badge-custom badge-success">
+                        <span class="status-dot"></span>
+                        COMPLETED
+                    </span>
 
                     @endif
 
@@ -252,72 +250,70 @@
 
                         @forelse($sale->itempenjualan as $item)
 
-                            <tr>
+                        <tr>
 
-                                {{-- NO --}}
-                                <td class="cell-no">
+                            {{-- NO --}}
+                            <td class="cell-no">
 
-                                    <span class="row-number">
-                                        {{ $loop->iteration }}
-                                    </span>
+                                <span class="row-number">
+                                    {{ $loop->iteration }}
+                                </span>
 
-                                </td>
-
-
-                                {{-- FOTO --}}
-                                <td class="cell-photo">
-
-                                    @if(isset($item->produk) && $item->produk->foto)
-
-                                        <div class="product-image-wrapper">
-
-                                            <img src="{{ asset('storage/' . $item->produk->foto) }}"
-                                                 alt="{{ $item->produk->nama }}"
-                                                 class="product-img">
-
-                                        </div>
-
-                                    @elseif(isset($item->foto) && $item->foto)
-
-                                        <div class="product-image-wrapper">
-
-                                            <img src="{{ asset('storage/' . $item->foto) }}"
-                                                 alt="Foto Produk"
-                                                 class="product-img">
-
-                                        </div>
-
-                                    @else
-
-                                        <div class="no-img-placeholder">
-
-                                            <i class="fa-solid fa-image"></i>
-
-                                            <span>No Image</span>
-
-                                        </div>
-
-                                    @endif
-
-                                </td>
+                            </td>
 
 
-                                {{-- NAMA PRODUK --}}
-                                <td class="cell-name">
+                            {{-- FOTO --}}
+                            <td class="cell-photo">
 
-                                    <span class="product-name">
-                                        {{ $item->produk->nama ?? $item->nama_produk ?? $item->nama ?? 'ADIDAS BALI' }}
-                                    </span>
+                                @if(isset($item->produk) && $item->produk->foto)
 
-                                </td>
+                                <div class="product-image-wrapper">
+
+                                    <img src="{{ asset('storage/' . $item->produk->foto) }}"
+                                        alt="{{ $item->produk->nama }}" class="product-img">
+
+                                </div>
+
+                                @elseif(isset($item->foto) && $item->foto)
+
+                                <div class="product-image-wrapper">
+
+                                    <img src="{{ asset('storage/' . $item->foto) }}" alt="Foto Produk"
+                                        class="product-img">
+
+                                </div>
+
+                                @else
+
+                                <div class="no-img-placeholder">
+
+                                    <i class="fa-solid fa-image"></i>
+
+                                    <span>No Image</span>
+
+                                </div>
+
+                                @endif
+
+                            </td>
 
 
-                                {{-- HARGA --}}
-                                <td class="cell-price">
+                            {{-- NAMA PRODUK --}}
+                            <td class="cell-name">
 
-                                    <span class="product-price">
+                                <span class="product-name">
+                                    {{ $item->produk->nama ?? $item->nama_produk ?? $item->nama ?? 'ADIDAS BALI' }}
+                                </span>
 
-                                        Rp {{ number_format(
+                            </td>
+
+
+                            {{-- HARGA --}}
+                            <td class="cell-price">
+
+                                <span class="product-price">
+
+                                    Rp {{ number_format(
                                             $item->harga
                                             ?? $item->produk->harga_jual
                                             ?? $item->subtotal
@@ -327,37 +323,37 @@
                                             '.'
                                         ) }}
 
-                                    </span>
+                                </span>
 
-                                </td>
+                            </td>
 
-                            </tr>
+                        </tr>
 
                         @empty
 
-                            <tr>
+                        <tr>
 
-                                <td colspan="4" class="empty-cell">
+                            <td colspan="4" class="empty-cell">
 
-                                    <div class="empty-state">
+                                <div class="empty-state">
 
-                                        <div class="empty-icon">
-                                            <i class="fa-solid fa-box-open"></i>
-                                        </div>
-
-                                        <h6>
-                                            Tidak ada detail produk
-                                        </h6>
-
-                                        <p>
-                                            Transaksi ini belum memiliki item produk terdaftar.
-                                        </p>
-
+                                    <div class="empty-icon">
+                                        <i class="fa-solid fa-box-open"></i>
                                     </div>
 
-                                </td>
+                                    <h6>
+                                        Tidak ada detail produk
+                                    </h6>
 
-                            </tr>
+                                    <p>
+                                        Transaksi ini belum memiliki item produk terdaftar.
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
 
                         @endforelse
 
@@ -379,7 +375,7 @@
 
     <div class="receipt-header">
         <h2>TOKO REMON TRIFHT HOUSE</h2>
-        <p>Jl. Jl. Raya Utama No. 123, Kel. Sukamaju, Kec. Cibeureum, 
+        <p>Jl. Jl. Raya Utama No. 123, Kel. Sukamaju, Kec. Cibeureum,
             Kota Tasikmalaya, Jawa Barat. No. 123</p>
         <p>Telp: 0812-3456-7890</p>
     </div>
@@ -409,15 +405,17 @@
 
     <table class="receipt-items">
         @foreach($sale->itempenjualan as $item)
-            <tr>
-                <td colspan="2" class="item-name">
-                    {{ $item->produk->nama ?? $item->nama_produk ?? $item->nama ?? 'Produk' }}
-                </td>
-            </tr>
-            <tr>
-                <td>1 x Rp {{ number_format($item->harga ?? $item->produk->harga_jual ?? $item->subtotal ?? 0, 0, ',', '.') }}</td>
-                <td class="text-right">Rp {{ number_format($item->subtotal ?? $item->harga ?? $item->produk->harga_jual ?? 0, 0, ',', '.') }}</td>
-            </tr>
+        <tr>
+            <td colspan="2" class="item-name">
+                {{ $item->produk->nama ?? $item->nama_produk ?? $item->nama ?? 'Produk' }}
+            </td>
+        </tr>
+        <tr>
+            <td>1 x Rp
+                {{ number_format($item->harga ?? $item->produk->harga_jual ?? $item->subtotal ?? 0, 0, ',', '.') }}</td>
+            <td class="text-right">Rp
+                {{ number_format($item->subtotal ?? $item->harga ?? $item->produk->harga_jual ?? 0, 0, ',', '.') }}</td>
+        </tr>
         @endforeach
     </table>
 
@@ -426,7 +424,8 @@
     <table class="receipt-total">
         <tr>
             <td><strong>TOTAL</strong></td>
-            <td class="text-right"><strong>Rp {{ number_format($sale->total_pembayaran ?? 0, 0, ',', '.') }}</strong></td>
+            <td class="text-right"><strong>Rp {{ number_format($sale->total_pembayaran ?? 0, 0, ',', '.') }}</strong>
+            </td>
         </tr>
     </table>
 
@@ -442,15 +441,11 @@
 
 
 <style>
-
 /* Area Struk Thermal HIDE by default di web screen */
 #thermal-receipt-area {
     display: none;
 }
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
 
 .sales-dashboard-container {
     position: relative;
@@ -458,28 +453,19 @@
     padding: 24px 0 50px;
     color: #e2e8f0;
     background:
-        radial-gradient(
-            circle at 10% 20%,
+        radial-gradient(circle at 10% 20%,
             rgba(0, 190, 140, .12),
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
+            transparent 40%),
+        radial-gradient(circle at 90% 80%,
             rgba(59, 130, 246, .10),
-            transparent 40%
-        ),
-        linear-gradient(
-            135deg,
+            transparent 40%),
+        linear-gradient(135deg,
             #020807 0%,
             #03120f 50%,
-            #020609 100%
-        );
+            #020609 100%);
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
 
 .page-header {
     display: flex;
@@ -503,11 +489,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #00d99a;
-    background: rgba(0,217,154,.12);
-    border: 1px solid rgba(0,217,154,.22);
+    color: #4c00d9;
+    background: rgba(0, 217, 154, .12);
+    border: 1px solid rgba(0, 217, 154, .22);
     border-radius: 13px;
-    box-shadow: 0 8px 25px rgba(0,217,154,.10);
+    box-shadow: 0 8px 25px rgba(0, 217, 154, .10);
 }
 
 .title-icon i {
@@ -527,11 +513,6 @@
     color: #81918f;
     font-size: 14px;
 }
-
-
-/* =========================================================
-   HEADER BUTTONS
-========================================================= */
 
 .header-actions {
     display: flex;
@@ -561,48 +542,45 @@
 
 .btn-action-back {
     color: #e2e8f0;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .12);
 }
 
 .btn-action-back:hover {
     color: #ffffff;
-    background: rgba(255,255,255,.14);
+    background: rgba(255, 255, 255, .14);
     transform: translateY(-1px);
 }
 
 .btn-action-print {
-    color: #00d99a;
-    background: rgba(0,217,154,.12);
-    border: 1px solid rgba(0,217,154,.25);
+    color: #1600d9;
+    background: rgba(0, 217, 154, .12);
+    border: 1px solid rgba(0, 217, 154, .25);
     cursor: pointer;
 }
 
 .btn-action-print:hover {
     color: #ffffff;
-    background: #00d99a;
-    box-shadow: 0 5px 18px rgba(0,217,154,.30);
+    background: #4c00d9;
+    box-shadow: 0 5px 18px rgba(0, 217, 154, .30);
     transform: translateY(-1px);
 }
 
 .btn-action-delete {
     color: #fb7185;
-    background: rgba(225,29,72,.13);
-    border: 1px solid rgba(225,29,72,.30);
+    background: rgba(225, 29, 72, .13);
+    border: 1px solid rgba(225, 29, 72, .30);
     cursor: pointer;
 }
 
 .btn-action-delete:hover {
     color: #ffffff;
     background: #e11d48;
-    box-shadow: 0 5px 18px rgba(225,29,72,.30);
+    box-shadow: 0 5px 18px rgba(225, 29, 72, .30);
     transform: translateY(-1px);
 }
 
 
-/* =========================================================
-   TRANSACTION CARD
-========================================================= */
 
 .transaction-card {
     width: 100%;
@@ -612,15 +590,13 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 22px;
     background:
-        linear-gradient(
-            145deg,
-            rgba(10,25,30,.82),
-            rgba(7,20,24,.72)
-        );
-    border: 1px solid rgba(255,255,255,.08);
+        linear-gradient(145deg,
+            rgba(10, 25, 30, .82),
+            rgba(7, 20, 24, .72));
+    border: 1px solid rgba(255, 255, 255, .08);
     border-radius: 18px;
     backdrop-filter: blur(16px);
-    box-shadow: 0 18px 45px rgba(0,0,0,.32);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .32);
 }
 
 .info-group {
@@ -655,8 +631,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #00d99a;
-    background: rgba(0,217,154,.09);
+    color: #3a00d9;
+    background: rgba(0, 217, 154, .09);
     border-radius: 8px;
 }
 
@@ -665,9 +641,6 @@
 }
 
 
-/* =========================================================
-   BADGES
-========================================================= */
 
 .badge-custom {
     display: inline-flex;
@@ -682,20 +655,20 @@
 
 .badge-indigo {
     color: #818cf8;
-    background: rgba(99,102,241,.15);
-    border: 1px solid rgba(99,102,241,.25);
+    background: rgba(99, 102, 241, .15);
+    border: 1px solid rgba(99, 102, 241, .25);
 }
 
 .badge-warning {
     color: #fbbf24;
-    background: rgba(245,158,11,.15);
-    border: 1px solid rgba(245,158,11,.25);
+    background: rgba(245, 158, 11, .15);
+    border: 1px solid rgba(245, 158, 11, .25);
 }
 
 .badge-success {
     color: #34d399;
-    background: rgba(16,185,129,.15);
-    border: 1px solid rgba(16,185,129,.25);
+    background: rgba(16, 185, 129, .15);
+    border: 1px solid rgba(16, 185, 129, .25);
 }
 
 .status-dot {
@@ -706,9 +679,6 @@
 }
 
 
-/* =========================================================
-   TOTAL
-========================================================= */
 
 .total-group {
     grid-column: 1 / -1;
@@ -716,7 +686,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px dashed rgba(255,255,255,.10);
+    border-top: 1px dashed rgba(255, 255, 255, .10);
 }
 
 .total-caption {
@@ -726,16 +696,13 @@
 }
 
 .total-price {
-    color: #00d99a;
+    color: #5428ce;
     font-size: 22px;
     font-weight: 800;
-    text-shadow: 0 0 12px rgba(0,217,154,.22);
+    text-shadow: 0 0 12px rgba(0, 217, 154, .22);
 }
 
 
-/* =========================================================
-   WHITE TABLE CARD
-========================================================= */
 
 .white-table-card {
     width: 100%;
@@ -743,13 +710,10 @@
     background: #ffffff;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 12px 35px rgba(0,0,0,.22);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .22);
 }
 
 
-/* =========================================================
-   TABLE HEADING
-========================================================= */
 
 .table-heading {
     min-height: 70px;
@@ -767,7 +731,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: #059669;
+    color: #502bd6;
     background: #ecfdf5;
     border: 1px solid #d1fae5;
     border-radius: 10px;
@@ -791,9 +755,6 @@
 }
 
 
-/* =========================================================
-   TABLE
-========================================================= */
 
 .custom-white-table {
     width: 100%;
@@ -804,9 +765,6 @@
 }
 
 
-/* =========================================================
-   TABLE HEADER
-========================================================= */
 
 .custom-white-table thead th {
     height: 58px;
@@ -839,9 +797,6 @@
 }
 
 
-/* =========================================================
-   TABLE BODY
-========================================================= */
 
 .custom-white-table tbody tr {
     height: 125px;
@@ -865,9 +820,6 @@
 }
 
 
-/* =========================================================
-   NOMOR
-========================================================= */
 
 .cell-no {
     text-align: center;
@@ -888,9 +840,6 @@
 }
 
 
-/* =========================================================
-   FOTO
-========================================================= */
 
 .cell-photo {
     text-align: center;
@@ -911,7 +860,7 @@
     border-radius: 13px;
     border: 1px solid #dfe5eb;
     background: #f1f5f9;
-    box-shadow: 0 5px 14px rgba(0,0,0,.09);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .09);
     transition:
         transform .2s ease,
         box-shadow .2s ease;
@@ -919,13 +868,10 @@
 
 .product-img:hover {
     transform: scale(1.04);
-    box-shadow: 0 8px 20px rgba(0,0,0,.14);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .14);
 }
 
 
-/* =========================================================
-   NO IMAGE
-========================================================= */
 
 .no-img-placeholder {
     width: 82px;
@@ -949,9 +895,6 @@
 }
 
 
-/* =========================================================
-   NAMA PRODUK
-========================================================= */
 
 .cell-name {
     text-align: center;
@@ -971,9 +914,6 @@
 }
 
 
-/* =========================================================
-   HARGA
-========================================================= */
 
 .cell-price {
     text-align: right;
@@ -982,16 +922,13 @@
 
 .product-price {
     display: inline-block;
-    color: #059669 !important;
+    color: #311de2 !important;
     font-size: 16px;
     font-weight: 800;
     white-space: nowrap;
 }
 
 
-/* =========================================================
-   EMPTY STATE
-========================================================= */
 
 .empty-cell {
     height: 210px !important;
@@ -1031,9 +968,6 @@
 }
 
 
-/* =========================================================
-   RESPONSIVE LAYOUT
-========================================================= */
 
 @media (max-width: 900px) {
     .transaction-card {
@@ -1045,68 +979,85 @@
     .sales-dashboard-container {
         padding: 18px 0 35px;
     }
+
     .page-header {
         align-items: flex-start;
         flex-direction: column;
     }
+
     .page-header-text {
         width: 100%;
     }
+
     .header-actions {
         width: 100%;
     }
+
     .btn-action-back,
     .btn-action-print,
     .btn-action-delete {
         flex: 1;
     }
+
     .page-title {
         font-size: 22px;
     }
+
     .page-subtitle {
         font-size: 13px;
     }
+
     .transaction-card {
         grid-template-columns: repeat(2, 1fr);
         padding: 18px;
         gap: 18px;
     }
+
     .total-group {
         align-items: flex-start;
         flex-direction: column;
         gap: 8px;
     }
+
     .white-table-card {
         padding: 7px;
         border-radius: 14px;
     }
+
     .table-heading {
         padding: 12px 10px;
     }
+
     .table-responsive {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
+
     .custom-white-table {
         min-width: 700px;
     }
+
     .custom-white-table thead th {
         height: 58px;
         padding: 0 14px;
         font-size: 12px;
     }
+
     .custom-white-table tbody td {
         height: 105px;
         padding: 12px 14px;
     }
+
     .product-img,
     .no-img-placeholder {
         width: 70px !important;
         height: 70px !important;
     }
+
     .product-name {
         font-size: 14px;
     }
+
     .product-price {
         font-size: 14px;
     }
@@ -1116,44 +1067,48 @@
     .page-header-text {
         align-items: flex-start;
     }
+
     .title-icon {
         width: 42px;
         height: 42px;
     }
+
     .title-icon i {
         font-size: 17px;
     }
+
     .transaction-card {
         grid-template-columns: 1fr;
     }
+
     .total-group {
         grid-column: auto;
     }
+
     .header-actions {
         gap: 7px;
     }
+
     .btn-action-back,
     .btn-action-print,
     .btn-action-delete {
         padding: 9px 12px;
         font-size: 12px;
     }
+
     .table-heading p {
         display: none;
     }
 }
 
 
-/* =========================================================
-   PRINT MEDIA STYLES (PRINTER THERMAL)
-========================================================= */
-
 @media print {
     body * {
         visibility: hidden;
     }
 
-    #thermal-receipt-area, #thermal-receipt-area * {
+    #thermal-receipt-area,
+    #thermal-receipt-area * {
         visibility: visible;
     }
 
@@ -1221,7 +1176,6 @@
         margin: 0;
     }
 }
-
 </style>
 
 @endsection

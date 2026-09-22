@@ -176,6 +176,26 @@ class PenjualanController extends Controller
 
 
     /**
+     * Laporan penjualan.
+     */
+    public function laporan()
+    {
+        $sales = Penjualan::with([
+            'user',
+            'itemPenjualan.produk'
+        ])
+        ->where('status', 'COMPLETED')
+        ->latest()
+        ->get();
+
+        return view(
+            'penjualan.laporan',
+            compact('sales')
+        );
+    }
+
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Penjualan $penjualan)

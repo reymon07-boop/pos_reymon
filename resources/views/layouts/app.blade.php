@@ -9,247 +9,247 @@
     <title>@yield('title')</title>
 
     @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
+    'resources/css/app.css',
+    'resources/js/app.js'
     ])
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    html,
+    body {
+        width: 100%;
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        /* Background dasar dibuat gelap netral agar tidak bocor warna putih */
+        background-color: #6a556d;
+        color: #5a6370;
+        overflow-x: hidden;
+    }
 
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            /* Background dasar dibuat gelap netral agar tidak bocor warna putih */
-            background-color: #030f12;
-            color: #334155;
-            overflow-x: hidden;
-        }
+    .main-content {
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        /* Di-set 0 agar child component bisa mengambil alih secara full screen */
+        margin: 0;
+    }
 
-        .main-content {
-            width: 100%;
-            min-height: 100vh;
-            padding: 0; /* Di-set 0 agar child component bisa mengambil alih secara full screen */
-            margin: 0;
-        }
+    /* Card */
 
-        /* Card */
+    .card {
 
-        .card {
+        border: none;
 
-            border: none;
+        border-radius: 22px;
 
-            border-radius: 22px;
+        overflow: hidden;
 
-            overflow: hidden;
+        box-shadow:
+            0 10px 35px rgba(15, 23, 42, .08);
 
-            box-shadow:
-                0 10px 35px rgba(15, 23, 42, .08);
+        transition: .3s;
 
-            transition: .3s;
+    }
 
-        }
+    .card:hover {
 
-        .card:hover {
+        transform: translateY(-2px);
 
-            transform: translateY(-2px);
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, .12);
 
-            box-shadow:
-                0 18px 40px rgba(15, 23, 42, .12);
+    }
 
-        }
+    /* Button */
 
-        /* Button */
+    .btn {
 
-        .btn {
+        border-radius: 12px;
 
-            border-radius: 12px;
+        font-weight: 600;
 
-            font-weight: 600;
+        transition: .25s;
 
-            transition: .25s;
+    }
 
-        }
+    .btn:hover {
 
-        .btn:hover {
+        transform: translateY(-2px);
 
-            transform: translateY(-2px);
+    }
 
-        }
 
-        /* Table */
 
-        .table {
+    .table {
 
-            margin-bottom: 0;
+        margin-bottom: 0;
 
-        }
+    }
 
-        .table thead th {
+    .table thead th {
 
-            background: #16a34a;
+        background: #16a34a;
 
-            color: white;
+        color: white;
 
-            border: none;
+        border: none;
 
-            text-align: center;
+        text-align: center;
 
-            vertical-align: middle;
+        vertical-align: middle;
 
-            font-weight: 600;
+        font-weight: 600;
 
-        }
+    }
 
-        .table tbody td {
+    .table tbody td {
 
-            vertical-align: middle;
+        vertical-align: middle;
 
-        }
+    }
 
-        .table tbody tr {
+    .table tbody tr {
 
-            transition: .25s;
+        transition: .25s;
 
-        }
+    }
 
-        .table tbody tr:hover {
+    .table tbody tr:hover {
 
-            background: #f0fdf4;
+        background: #f0fdf4;
 
-        }
+    }
 
-        /* Image */
+    /* Image */
 
-        img {
+    img {
 
-            border-radius: 12px;
+        border-radius: 12px;
 
-        }
+    }
 
-        /* Badge */
+    /* Badge */
 
-        .badge {
+    .badge {
 
-            font-size: .85rem;
+        font-size: .85rem;
 
-            padding: 8px 14px;
+        padding: 8px 14px;
 
-            border-radius: 30px;
+        border-radius: 30px;
 
-        }
+    }
 
-        /* Alert */
 
-        .alert-modern {
 
-            border: none;
+    .alert-modern {
 
-            border-radius: 18px;
+        border: none;
 
-            font-weight: 600;
+        border-radius: 18px;
 
-            padding: 16px 20px;
+        font-weight: 600;
 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+        padding: 16px 20px;
 
-            animation: slideDown .5s;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 
-        }
+        animation: slideDown .5s;
 
-        @keyframes slideDown {
+    }
 
-            from {
+    @keyframes slideDown {
 
-                opacity: 0;
+        from {
 
-                transform: translateY(-20px);
+            opacity: 0;
 
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
+            transform: translateY(-20px);
 
         }
 
-        /* Scrollbar */
+        to {
 
-        ::-webkit-scrollbar {
+            opacity: 1;
 
-            width: 9px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-
-            background: #030f12;
+            transform: translateY(0);
 
         }
 
-        ::-webkit-scrollbar-thumb {
+    }
 
-            background: #16a34a;
 
-            border-radius: 20px;
 
-        }
+    ::-webkit-scrollbar {
 
-        ::-webkit-scrollbar-thumb:hover {
+        width: 9px;
 
-            background: #15803d;
+    }
 
-        }
+    ::-webkit-scrollbar-track {
 
-        /* Pagination */
+        background: #1f16a3;
 
-        .pagination {
+    }
 
-            justify-content: end;
+    ::-webkit-scrollbar-thumb {
 
-        }
+        background: #1f16a3;
 
-        .page-link {
+        border-radius: 20px;
 
-            color: #16a34a;
+    }
 
-            border-radius: 10px !important;
+    ::-webkit-scrollbar-thumb:hover {
 
-            margin: 0 3px;
+        background: #1f16a3;
 
-        }
+    }
 
-        .page-item.active .page-link {
+    /* Pagination */
 
-            background: #16a34a;
+    .pagination {
 
-            border-color: #16a34a;
+        justify-content: end;
 
-        }
+    }
 
+    .page-link {
+
+        color: #1f16a3;
+
+        border-radius: 10px !important;
+
+        margin: 0 3px;
+
+    }
+
+    .page-item.active .page-link {
+
+        background: #1f16a3;
+
+        border-color: #1f16a3;
+
+    }
     </style>
 
 </head>
 
 <body>
 
-<div class="main-content">
+    <div class="main-content">
 
-    @if(session('success'))
+        @if(session('success'))
 
         <div class="alert alert-success alert-modern m-4">
 
@@ -259,11 +259,11 @@
 
         </div>
 
-    @endif
+        @endif
 
-    @yield('content')
+        @yield('content')
 
-</div>
+    </div>
 
 </body>
 
